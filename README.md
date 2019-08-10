@@ -1,0 +1,2 @@
+# encerrado
+encerramento do minhocao
