@@ -1,151 +1,22 @@
 <template>
   <div class="home">
-    <v-container fluid grid-list-md text-center>
-      <v-layout wrap>
-        <v-flex xs12 sm6 md4 lg3>
-          <v-card>
-            <v-img
-              :src="vampiro"
-              lazy-src="https://picsum.photos/id/11/10/6"
-              aspect-ratio="1"
-              class="grey lighten-2"
-              max-width="100%"
-              max-height="100%"
-            ></v-img>
-          </v-card>
-        </v-flex>
-        <v-flex xs12 sm6 md4 lg3>
-          <v-card>
-            <v-img
-              :src="crossfit"
-              lazy-src="https://picsum.photos/id/11/10/6"
-              aspect-ratio="1"
-              class="grey lighten-2"
-              max-width="100%"
-              max-height="100%"
-            ></v-img>
-          </v-card>
-        </v-flex>
-        <v-flex xs12 sm6 md4 lg3>
-          <v-card>
-            <v-img
-              :src="terry"
-              lazy-src="https://picsum.photos/id/11/10/6"
-              aspect-ratio="1"
-              class="grey lighten-2"
-              max-width="100%"
-              max-height="100%"
-            ></v-img>
-          </v-card>
-        </v-flex>
-        <v-flex xs12 sm6 md4 lg3>
-          <v-card>
-            <v-img
-              :src="ossos"
-              lazy-src="https://picsum.photos/id/11/10/6"
-              aspect-ratio="1"
-              class="grey lighten-2"
-              max-width="100%"
-              max-height="100%"
-            ></v-img>
-          </v-card>
-        </v-flex>
-        <v-flex xs12 sm6 md4 lg3>
-          <v-card>
-            <v-img
-              :src="abigail"
-              lazy-src="https://picsum.photos/id/11/10/6"
-              aspect-ratio="1"
-              class="grey lighten-2"
-              max-width="100%"
-              max-height="100%"
-            ></v-img>
-          </v-card>
-        </v-flex>
-        <v-flex xs12 sm6 md4 lg3>
-          <v-card>
-            <v-img
-              :src="bipolar"
-              lazy-src="https://picsum.photos/id/11/10/6"
-              aspect-ratio="1"
-              class="grey lighten-2"
-              max-width="100%"
-              max-height="100%"
-            ></v-img>
-          </v-card>
-        </v-flex>
-        <v-flex xs12 sm6 md4 lg3>
-          <v-card>
-            <v-img
-              :src="pegada"
-              lazy-src="https://picsum.photos/id/11/10/6"
-              aspect-ratio="1"
-              class="grey lighten-2"
-              max-width="100%"
-              max-height="100%"
-            ></v-img>
-          </v-card>
-        </v-flex>
-        <v-flex xs12 sm6 md4 lg3>
-          <v-card>
-            <v-img
-              :src="ventriculo"
-              lazy-src="https://picsum.photos/id/11/10/6"
-              aspect-ratio="1"
-              class="grey lighten-2"
-              max-width="100%"
-              max-height="100%"
-            ></v-img>
-          </v-card>
-        </v-flex>
-        <v-flex xs12 sm6 md4 lg3>
-          <v-card>
-            <v-img
-              :src="possessao"
-              lazy-src="https://picsum.photos/id/11/10/6"
-              aspect-ratio="1"
-              class="grey lighten-2"
-              max-width="100%"
-              max-height="100%"
-            ></v-img>
-          </v-card>
-        </v-flex>
-        <v-flex xs12 sm6 md4 lg3>
-          <v-card>
-            <v-img
-              :src="pescoco"
-              lazy-src="https://picsum.photos/id/11/10/6"
-              aspect-ratio="1"
-              class="grey lighten-2"
-              max-width="100%"
-              max-height="100%"
-            ></v-img>
-          </v-card>
-        </v-flex>
-        <v-flex xs12 sm6 md4 lg3>
-          <v-card>
-            <v-img
-              :src="aglomerado"
-              lazy-src="https://picsum.photos/id/11/10/6"
-              aspect-ratio="1"
-              class="grey lighten-2"
-              max-width="100%"
-              max-height="100%"
-            ></v-img>
-          </v-card>
-        </v-flex>
-        <v-flex xs12 sm6 md4 lg3>
-          <v-card>
-            <v-img
-              :src="botos"
-              lazy-src="https://picsum.photos/id/11/10/6"
-              aspect-ratio="1"
-              class="grey lighten-2"
-              max-width="100%"
-              max-height="100%"
-            ></v-img>
-          </v-card>
-        </v-flex>
+    <v-container fluid grid-list-md text-center fill-height>
+      <v-layout column>
+        <v-layout row wrap>
+          <div class="alinhamento"></div>
+          <v-flex xs2 sm1 md1 lg1 v-for="image in imagens1" :key="image">
+            <imagem :imagem="image" />
+          </v-flex>
+        </v-layout>
+        <v-layout fill-height>
+          <texto />
+        </v-layout>
+        <v-layout row wrap>
+          <div class="alinhamento"></div>
+          <v-flex xs2 sm1 md1 lg1 v-for="image in imagens2" :key="image">
+            <imagem :imagem="image" />
+          </v-flex>
+        </v-layout>
       </v-layout>
     </v-container>
   </div>
@@ -164,23 +35,33 @@ import Possessao from "@/assets/possessao.png";
 import Pescoco from "@/assets/pescoco.jpg";
 import Aglomerado from "@/assets/aglomerado.jpg";
 import Botos from "@/assets/botos.jpg";
+import Imagem from "@/components/Imagem.vue";
+import Texto from "@/components/Texto.vue";
 
 export default {
   name: "home",
+  components: {
+    Imagem,
+    Texto
+  },
   data() {
     return {
-      vampiro: Vampiro,
-      crossfit: Crossfit,
-      terry: Terry,
-      ossos: Ossos,
-      abigail: Abigail,
-      bipolar: Bipolar,
-      pegada: Pegada,
-      ventriculo: Ventriculo,
-      possessao: Possessao,
-      pescoco: Pescoco,
-      aglomerado: Aglomerado,
-      botos: Botos,
+      imagens1: {
+        vampiro: Vampiro,
+        crossfit: Crossfit,
+        terry: Terry,
+        ossos: Ossos,
+        abigail: Abigail,
+        bipolar: Bipolar
+      },
+      imagens2: {
+        pegada: Pegada,
+        ventriculo: Ventriculo,
+        possessao: Possessao,
+        pescoco: Pescoco,
+        aglomerado: Aglomerado,
+        botos: Botos
+      }
     };
   }
 };
@@ -189,5 +70,11 @@ export default {
 <style scoped>
 .home {
   height: 100vh;
+}
+
+@media screen and (min-width: 768px) {
+  .alinhamento {
+    margin-left: 25%;
+  }
 }
 </style>
